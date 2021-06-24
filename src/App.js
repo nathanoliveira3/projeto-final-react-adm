@@ -4,6 +4,7 @@ import Footer from './Components/Footer'
 import Produtos from './Pages/Produtos';
 import Categorias from './Pages/Categorias';
 import FormCategoria from './Pages/FormCategoria';
+import FormProduto from './Components/FormProduto';
 function App() {  
 
   return (
@@ -21,7 +22,10 @@ function App() {
         </Route>
         <Route exact path="/cadastroCategoria">
           <FormCategoria />
-        </Route>           
+        </Route>
+        <Route exact path="/cadastroProduto">
+          <FormProduto />
+        </Route>
       </Switch>    
       <Footer />
   </BrowserRouter>

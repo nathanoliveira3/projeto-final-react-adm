@@ -1,4 +1,6 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import http from "../../http"
+import ListarCategorias from "../../Components/ListarCategorias"
 
 const FormProduto = () => {
 
@@ -8,28 +10,58 @@ const FormProduto = () => {
     const [preco, setPreco] = useState('')
     const [quantidade, setQuantidade] = useState('')
     const [imagem, setImagem] = useState('')
-    // const [categoria, setCategoria] = useState('')
+
+    const [categorias, setCategorias] = useState([])
+
+    const obterCategorias = () => {
+
+
+        http.get('categoria')
+            .then(response => setCategorias(response.data))
+            .catch(erro => console.log(erro))
+        console.log(categorias);
+    }
+
+    useEffect(() => {
+        obterCategorias()
+    }, []);
 
 
     return (
-        <form onSubmit={}>
-            <label>Codigo</label>
-            <input type="text" value={codigo} onChange={e => setCodigo(e.target.value)} />
-            <label>Nome</label>
-            <input type="text" value={nome} onChange={e => setNome(e.target.value)} />
-            <label>Descrição</label>
-            <input type="text" value={descricao} onChange={e => setDescricao(e.target.value)} />
-            <label>Preço</label>
-            <input type="number" value={preco} onChange={e => setPreco(e.target.value)} />
-            <label>Quantidade</label>
-            <input type="number" value={quantidade} onChange={e => setQuantidade(e.target.value)} />
-            <label>Imagem</label>
-            <input type="file" value={imagem} onChange={e => setImagem(e.target.value)} />
-            
-            <label>Categoria</label>
-            <select>
+        <form className="col-6 mx-auto">
+            <div className="mb-3">
+                <label className="form-label">Codigo</label>
+                <input className="form-control" type="text" value={codigo} onChange={e => setCodigo(e.target.value)} />
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Nome</label>
+                <input className="form-control" type="text" value={nome} onChange={e => setNome(e.target.value)} />
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Descrição</label>
+                <input className="form-control" type="text" value={descricao} onChange={e => setDescricao(e.target.value)} />
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Preço</label>
+                <input className="form-control" type="number" value={preco} onChange={e => setPreco(e.target.value)} />
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Quantidade</label>
+                <input className="form-control" type="number" value={quantidade} onChange={e => setQuantidade(e.target.value)} />
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Imagem</label>
+                <input className="form-control" type="url" value={imagem} onChange={e => setImagem(e.target.value)} />
+            </div>
 
-            </select>
+            <div className="mb-3">
+                <label className="form-label">Categoria</label>
+                <select className="form-control ">
+                    {categorias.map((c) => {
+                        return <ListarCategorias key={c.id} nome={c.nome} id={c.id} />
+                    })}
+                </select>
+            </div>
         </form>
     )
 }
