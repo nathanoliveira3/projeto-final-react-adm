@@ -2,6 +2,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
 import Produtos from './Pages/Produtos';
+import Categorias from './Pages/Categorias';
+import FormCategoria from './Pages/FormCategoria';
 function App() {  
 
   return (
@@ -11,6 +13,15 @@ function App() {
         <Route exact path="/produtos">
           <Produtos />
         </Route>        
+        <Route exact path="/">
+          
+        </Route> 
+        <Route exact path="/categorias">
+          <Categorias />
+        </Route>
+        <Route exact path="/cadastroCategoria">
+          <FormCategoria />
+        </Route>           
       </Switch>    
       <Footer />
   </BrowserRouter>
