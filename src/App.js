@@ -5,6 +5,7 @@ import Produtos from './Pages/Produtos';
 import Categorias from './Pages/Categorias';
 import FormCategoria from './Pages/FormCategoria';
 import FormProduto from './Components/FormProduto';
+import CategoriaAlterar from './Pages/CategoriaAlterar';
 function App() {  
 
   return (
@@ -25,7 +26,10 @@ function App() {
         </Route>
         <Route exact path="/cadastroProduto">
           <FormProduto />
-        </Route>
+        </Route> 
+        <Route exact path="/alterarCategoria/:id">
+          <CategoriaAlterar />
+        </Route>          
       </Switch>    
       <Footer />
   </BrowserRouter>
