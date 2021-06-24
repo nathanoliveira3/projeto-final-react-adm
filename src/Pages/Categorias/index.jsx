@@ -12,7 +12,7 @@ const Categorias = () => {
         http.get('categoria')
             .then(response => setCategorias(response.data))
     }
-    
+
     useEffect(() => {
         obterCategorias()
     }, [])
@@ -29,8 +29,7 @@ const Categorias = () => {
 
         return (
             <div className="container mt-5">
-                <input value={nome} className="form-control" type="text" onChange={(evento) => setNome(evento.target.value)} />
-                <button>Pesquisar</button>
+                <input value={nome} className="form-control my-5" type="text" onChange={(evento) => setNome(evento.target.value)} />
                 <table className="table">
                     <thead>
                         <tr>
@@ -54,8 +53,9 @@ const Categorias = () => {
     return (
 
         <div className="container mt-5">
-            <input value={nome} className="form-control" type="text" onChange={(evento) => setNome(evento.target.value)} />
-            <button>Pesquisar</button>
+            <div className="col-6 mx-auto">
+                <input value={nome} className="form-control col-6 my-5" type="text" onChange={(evento) => setNome(evento.target.value)} />
+            </div>
             <table className="table">
                 <thead>
                     <tr>
