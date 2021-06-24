@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
 import Categorias from './Pages/Categorias';
 import FormCategoria from './Pages/FormCategoria';
+import CategoriaAlterar from './Pages/CategoriaAlterar';
 function App() {  
 
   return (
@@ -17,7 +18,10 @@ function App() {
         </Route>
         <Route exact path="/cadastroCategoria">
           <FormCategoria />
-        </Route>           
+        </Route>     
+        <Route exact path="/alterarCategoria/:id">
+          <CategoriaAlterar />
+        </Route>          
       </Switch>    
       <Footer />
   </BrowserRouter>

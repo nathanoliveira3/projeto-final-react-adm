@@ -1,15 +1,28 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from "react";
+import http from '../../http';
 const CategoriaAlterar = () => {
     const { id } = useParams()
-    const [categoria, setCategoria] = useState('')
+    const [categoria, setCategoria] = useState({})
+    const [nome, setNome] = useState('')
+    const [descricao, setDescricao] = useState('')
+
+    const obterCategoria = () => {
+        http.get('categoria/'+id)
+        .then(response => setCategoria(response.data))
+    }
+
+    useEffect(() => {
+        obterCategoria()
+    }, [id])
 
     const salvar = () => {
         const categoria = {
             nome: nome,
             descricao: descricao
         }
-        http.post('categoria', categoria)
+        http.put('categoria/'+id, categoria)
+        .then(() => obterCategoria())
     }
 
     return(
