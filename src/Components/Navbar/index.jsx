@@ -17,7 +17,7 @@ const Navbar = () => {
                         <Link className="nav-link" to="/produtos">Produtos</Link>
                     </li> 
                     <li className="nav-item">
-                        <Link className="nav-link" to={`/carrinho/${localStorage.getItem('idCliente')}`}>Carrinho</Link>
+                        <Link className="nav-link" to='/categorias'>Categorias</Link>
                     </li>                   
                     <li className="nav-item">
                         <Link className="nav-link btn btn-link" to="/conta">Conta</Link>
