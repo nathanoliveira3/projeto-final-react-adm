@@ -8,6 +8,7 @@ import FormProduto from './Components/FormProduto';
 import CategoriaAlterar from './Pages/CategoriaAlterar';
 import ProdutoAlterar from './Pages/ProdutoAlterar';
 import Home from './Pages/Home';
+import Pedidos from './Pages/Pedidos';
 function App() {  
 
   return (
@@ -34,7 +35,10 @@ function App() {
         </Route> 
         <Route exact path="/alterarProduto/:id">
           <ProdutoAlterar />
-        </Route>            
+        </Route>   
+        <Route exact path="/pedidos">
+          <Pedidos />
+        </Route>          
       </Switch>    
       <Footer />
   </BrowserRouter>

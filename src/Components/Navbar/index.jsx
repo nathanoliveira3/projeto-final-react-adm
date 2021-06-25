@@ -18,7 +18,10 @@ const Navbar = () => {
                     </li> 
                     <li className="nav-item">
                         <Link className="nav-link" to='/categorias'>Categorias</Link>
-                    </li>             
+                    </li>  
+                    <li className="nav-item">
+                        <Link className="nav-link" to='/pedidos'>Pedidos</Link>
+                    </li>            
                     
                     </ul>
                     <form className="d-flex">
