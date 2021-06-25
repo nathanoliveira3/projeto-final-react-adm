@@ -1,15 +1,21 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from "react";
 import http from '../../http';
+import MensagemSucesso from '../../Components/MensagemSucesso'
 const CategoriaAlterar = () => {
     const { id } = useParams()
     const [categoria, setCategoria] = useState({})
     const [nome, setNome] = useState('')
     const [descricao, setDescricao] = useState('')
+    const [mensagem, setMensagem] = useState('')
 
     const obterCategoria = () => {
         http.get('categoria/'+id)
-        .then(response => setCategoria(response.data))
+        .then(response => {
+            setCategoria(response.data)
+            setNome(response.data.nome)
+            setDescricao(response.data.descricao)
+        })
     }
 
     useEffect(() => {
@@ -22,12 +28,20 @@ const CategoriaAlterar = () => {
             descricao: descricao
         }
         http.put('categoria/'+id, categoria)
-        .then(() => obterCategoria())
+        .then(() => {
+            setMensagem('Categoria alterada!')
+            setTimeout(() => {
+                setMensagem('')
+            }, 4500)
+        })            
+    
+        
     }
 
     return(
         <div className="container container-form mt-5">
             <form>
+            <h1 className="text-center mb-5">Alteração de categoria</h1>
                 <div className="mb-3">
                     <label className="form-label">Nome da Categoria</label>
                     <input type="text" className="form-control" value={nome} onChange={(evento) => setNome(evento.target.value)} />
@@ -40,6 +54,7 @@ const CategoriaAlterar = () => {
                     <button className="btn btn-dark" onClick={salvar}>Enviar</button>
                 </div>
             </form>
+            {mensagem && <MensagemSucesso msg={mensagem} />}
         </div>
     )
 }

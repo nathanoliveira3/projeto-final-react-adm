@@ -6,6 +6,7 @@ import Categorias from './Pages/Categorias';
 import FormCategoria from './Pages/FormCategoria';
 import FormProduto from './Components/FormProduto';
 import CategoriaAlterar from './Pages/CategoriaAlterar';
+import ProdutoAlterar from './Pages/ProdutoAlterar';
 function App() {  
 
   return (
@@ -29,7 +30,10 @@ function App() {
         </Route> 
         <Route exact path="/alterarCategoria/:id">
           <CategoriaAlterar />
-        </Route>          
+        </Route> 
+        <Route exact path="/alterarProduto/:id">
+          <ProdutoAlterar />
+        </Route>            
       </Switch>    
       <Footer />
   </BrowserRouter>

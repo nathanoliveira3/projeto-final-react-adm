@@ -18,13 +18,8 @@ const Navbar = () => {
                     </li> 
                     <li className="nav-item">
                         <Link className="nav-link" to='/categorias'>Categorias</Link>
-                    </li>                   
-                    <li className="nav-item">
-                        <Link className="nav-link btn btn-link" to="/conta">Conta</Link>
-                    </li>                   
-                    <li className="nav-item">
-                        <button className="nav-link btn btn-link">Logout</button>
-                    </li>
+                    </li>             
+                    
                     </ul>
                     <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

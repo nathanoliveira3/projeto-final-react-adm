@@ -20,16 +20,13 @@ const FormCategoria = () => {
                     setMensagem('')
                 }, 4500)
             }               
-        )
-
-        
-
+        )   
 
     }
 
     return (
         <div className="container container-form mt-5">
-
+            <h1 className="text-center my-5">Cadastrar categoria</h1>
             <form>
                 <div className="mb-3">
                     <label className="form-label">Nome da Categoria</label>

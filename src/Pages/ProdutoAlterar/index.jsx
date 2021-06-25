@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react"
+import { useParams } from 'react-router-dom'
 import http from "../../http"
-import ListarCategorias from "../../Components/ListarCategorias"
 import MensagemSucesso from '../../Components/MensagemSucesso'
-
-const FormProduto = () => {
-
+const ProdutoAlterar = () => {
+    const { id } = useParams()
     const [codigo, setCodigo] = useState('')
     const [nome, setNome] = useState('')
     const [descricao, setDescricao] = useState('')
@@ -13,8 +12,9 @@ const FormProduto = () => {
     const [imagem, setImagem] = useState('')
 
     const [categorias, setCategorias] = useState([])
-
     const [categoria, setCategoria] = useState('')
+
+    const [produto, setProduto] = useState({})
     const [mensagem, setMensagem] = useState('')
 
     const obterCategorias = () => {
@@ -28,10 +28,24 @@ const FormProduto = () => {
         obterCategorias()
     }, []);
 
+    const obterProduto = () => {
+        http.get('produto/' + id)
+            .then(response => {
+                setProduto(response.data)
+                setCodigo(response.data.codigo)
+                setNome(response.data.nome)
+                setDescricao(response.data.descricao)
+                setPreco(response.data.preco)
+                setQuantidade(response.data.estoque)
+                setImagem(response.data.imagem)
+            })
+    }
 
-    const cadastrar = (e) => {
-        e.preventDefault()
+    useEffect(() => {
+        obterProduto()
+    }, [id])
 
+    const alterar = () => {
         const produto = {
             codigo: codigo,
             nome: nome,
@@ -41,30 +55,18 @@ const FormProduto = () => {
             imagem: imagem,
             categoria: categoria
         }
-
-        http.post('produto', produto)
+        http.put('produto/' + id, produto)
             .then(() => {
-                setMensagem('Produto Cadastrado!')
+                setMensagem('Produto alterado!')
                 setTimeout(() => {
                     setMensagem('')
                 }, 4500)
-
             })
-
-        // setCodigo('')
-        // setNome('')
-        // setDescricao('')
-        // setImagem('')
-        // setQuantidade('')
-        // setImagem('')
     }
 
-
-
-    return (
-        
-        <form onSubmit={cadastrar} className="col-6 mx-auto">
-            <h1 className="text-center my-5">Cadastrar Produto</h1>
+    return (        
+        <form onSubmit={alterar} className="col-6 mx-auto mt-5">
+            <h1 className="text-center mb-5">Alteração de produto</h1>
             <div className="mb-3">
                 <label className="form-label">Codigo</label>
                 <input className="form-control" type="text" value={codigo} onChange={e => setCodigo(e.target.value)} />
@@ -100,7 +102,6 @@ const FormProduto = () => {
 
                         return <option key={index} value={c.nome} >{c.nome}</option>
 
-
                     })}
                 </select>
             </div>
@@ -114,4 +115,4 @@ const FormProduto = () => {
     )
 }
 
-export default FormProduto
+export default ProdutoAlterar
