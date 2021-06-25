@@ -7,6 +7,7 @@ import FormCategoria from './Pages/FormCategoria';
 import FormProduto from './Components/FormProduto';
 import CategoriaAlterar from './Pages/CategoriaAlterar';
 import ProdutoAlterar from './Pages/ProdutoAlterar';
+import Home from './Pages/Home';
 function App() {  
 
   return (
@@ -17,7 +18,7 @@ function App() {
           <Produtos />
         </Route>        
         <Route exact path="/">
-          
+          <Home />
         </Route> 
         <Route exact path="/categorias">
           <Categorias />

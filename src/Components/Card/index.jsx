@@ -4,6 +4,11 @@ const Card = (props) => {
         props.excluir(props.id)
     }
 
+    const formatter = new Intl.NumberFormat('pr-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    })
+
     return (
         <div className="container mt-5">
             <div className="card w-75 row flex-row mx-auto">
@@ -13,8 +18,8 @@ const Card = (props) => {
                 <div className="card-body col-6">
                     <h5 className="card-title">{props.nome}</h5>
                     <p className="card-text">{props.descricao}</p>
-                    <p className="card-text">{props.preco}</p>
-                    <p className="card-text">{props.estoque}</p>
+                    <p className="card-text">{formatter.format(props.preco)}</p>
+                    <p className="card-text">Estoque:{props.estoque}</p>
                     <p className="card-text">Categoria: {props.categoria}</p>
 
                     <a href="#" onClick={solicitarExclusao} className="btn btn-danger mx-2 my-2">Excluir</a>

@@ -5,10 +5,11 @@ const Produtos = () => {
 
     return (
         <>
-            <ListarProdutos />
-            <div className="d-flex justify-content-center mt-5">
+             <div className="d-flex justify-content-center mt-5">
                 <Link className="btn btn-dark" to='/cadastroProduto'>CADASTRAR NOVO PRODUTO</Link>
             </div>
+            <ListarProdutos />
+           
         </>
     )
 

@@ -20,7 +20,10 @@ const FormCategoria = () => {
                     setMensagem('')
                 }, 4500)
             }               
-        )   
+        )  
+        
+        setNome('')
+        setDescricao('')
 
     }
 

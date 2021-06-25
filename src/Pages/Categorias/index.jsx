@@ -33,14 +33,16 @@ const Categorias = () => {
 
     useEffect(() => {
         http.get('categoria?nome=' + nome)
-        .then(response => setCategoria(response.data))
+            .then(response => setCategoria(response.data))
     })
 
-    if (nome) {     
+    if (nome) {
         return (
             <div className="container mt-5">
-               <h1 className="text-center my-5">Categorias</h1> 
-                <input value={nome} className="form-control my-5" type="text" onChange={(evento) => setNome(evento.target.value)} />
+                <h1 className="text-center my-5">Categorias</h1>
+                <div className="col-6 mx-auto">
+                    <input value={nome} className="form-control col-6 my-5" type="text" onChange={(evento) => setNome(evento.target.value)} />
+                </div>
                 <table className="table">
                     <thead>
                         <tr>
