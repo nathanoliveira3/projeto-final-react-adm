@@ -19,7 +19,7 @@ const ListarProdutos = () => {
     return (
         <>
         {produtos.map((p) => {
-           return <Card key={p.id} nome={p.nome} descricao={p.descricao} preco={p.preco} estoque={p.estoque} categoria={p.categoria.nome} />
+           return <Card key={p.id} imagem={p.url} nome={p.nome} descricao={p.descricao} preco={p.preco} estoque={p.estoque} categoria={p.categoria.nome} />
         })}
         </>
     )

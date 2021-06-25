@@ -13,13 +13,13 @@ const FormProduto = () => {
 
     const [categorias, setCategorias] = useState([])
 
-    const obterCategorias = () => {
+    const [categoria, setCategoria] = useState('')
 
+    const obterCategorias = () => {
 
         http.get('categoria')
             .then(response => setCategorias(response.data))
             .catch(erro => console.log(erro))
-        console.log(categorias);
     }
 
     useEffect(() => {
@@ -27,8 +27,36 @@ const FormProduto = () => {
     }, []);
 
 
+    const cadastrar = (e) =>{
+        e.preventDefault()
+
+        const produto = {
+            codigo: codigo,
+            nome: nome,
+            descricao: descricao,
+            preco: preco,
+            quantidade: quantidade,
+            imagem: imagem,
+            categoria: categoria
+        }
+
+        http.post('produto', produto)
+            .then(response => {
+                console.log(response.data); 
+            })
+        
+            // setCodigo('')
+            // setNome('')
+            // setDescricao('')
+            // setImagem('')
+            // setQuantidade('')
+            // setImagem('')
+    }
+
+
+
     return (
-        <form className="col-6 mx-auto">
+        <form onSubmit={cadastrar} className="col-6 mx-auto">
             <div className="mb-3">
                 <label className="form-label">Codigo</label>
                 <input className="form-control" type="text" value={codigo} onChange={e => setCodigo(e.target.value)} />
@@ -43,11 +71,11 @@ const FormProduto = () => {
             </div>
             <div className="mb-3">
                 <label className="form-label">Preço</label>
-                <input className="form-control" type="number" value={preco} onChange={e => setPreco(e.target.value)} />
+                <input className="form-control" min={0} type="number" value={preco} onChange={e => setPreco(e.target.value)} />
             </div>
             <div className="mb-3">
                 <label className="form-label">Quantidade</label>
-                <input className="form-control" type="number" value={quantidade} onChange={e => setQuantidade(e.target.value)} />
+                <input className="form-control" min={0} type="number" value={quantidade} onChange={e => setQuantidade(e.target.value)} />
             </div>
             <div className="mb-3">
                 <label className="form-label">Imagem</label>
@@ -56,11 +84,19 @@ const FormProduto = () => {
 
             <div className="mb-3">
                 <label className="form-label">Categoria</label>
-                <select className="form-control ">
-                    {categorias.map((c) => {
-                        return <ListarCategorias key={c.id} nome={c.nome} id={c.id} />
+                <select className="form-control" value={categoria} onChange={e => setCategoria(e.target.value)} >
+                    {categorias.map((c, index) => {
+                        
+                        return <option key={index} value={c.id} >{c.nome}</option>
+
+                        // return <ListarCategorias key={c.id} nome={c.nome} onChange={} />
                     })}
                 </select>
+            </div>
+            <div>
+                <button className="btn btn-dark">
+                    Cadastrar
+                </button>
             </div>
         </form>
     )

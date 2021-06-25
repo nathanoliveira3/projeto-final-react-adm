@@ -6,7 +6,7 @@ const Card = (props) => {
         <div className="container">
             <div className="card w-75">
                 <div className="col-md-4">
-                    <img src="..." className="img-fluid rounded-start" alt="..." />
+                    <img src={props.imagem} className="img-fluid rounded-start" alt="..." />
                 </div>
                 <div className="card-body">
                     <h5 className="card-title">{props.nome}</h5>
