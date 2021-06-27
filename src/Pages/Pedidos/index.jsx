@@ -12,7 +12,7 @@ const Pedidos = () => {
     }, [])
 
     const atualizar = () => {
-        http.get('pedido/')
+        http.get('pedido')
             .then(response => setPedidos(response.data))
     }
 
