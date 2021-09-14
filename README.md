@@ -68,7 +68,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - React
 - Axios
 - React Router Dom
----
+
 
 ## 👨‍💻 Equipe
 
