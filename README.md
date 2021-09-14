@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+</p>
+<h1 align="center">
+    E-commerce ADM
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 💻 Sobre o projeto
 
-In the project directory, you can run:
+Repositório para o trabalho final da disciplina Desenvolvimento WEB da Residência em Software/TIC do Serratec. Onde foi desenvolvido um sistema Administrativo para um para E-Commerce.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## ⚙️ Funcionalidades
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [x] 01 - Cadastrar produtos.
+- [x] 02 - Alterar cadastro de produtos.
+- [x] 03 - Excluir produtos do sistema.
+- [x] 04 - Cadastrar categoria.
+- [x] 05 - Alterar categoria.
+- [x] 06 - Excluir categoria.
+- [x] 07 - Alterar status de pedidos.
 
-### `npm test`
+## 🚀 Como executar o projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Pré-requisitos
 
-### `npm run build`
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+Git, Eclipse ou qualquer outra IDE Java, VsCode e Node.js .
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### 🎲 Rodando o Backend (servidor)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
 
-### `npm run eject`
+# Clone este repositório
+$ git clone https://github.com/nathanoliveira3/trabalho_final_API_restfull.git
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Abra o projeto na sua IDE e execute o código 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### 🧭 Rodando a aplicação web (Frontend)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
 
-## Learn More
+# Clone este repositório
+$ git clone https://github.com/nathanoliveira3/projeto-final-react-adm.git
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Acesse a pasta do projeto
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Instale as dependências
+$ npm install
 
-### Code Splitting
+# Execute a aplicação em modo de desenvolvimento
+$ npm run start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
 
-### Analyzing the Bundle Size
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🛠 Tecnologias
 
-### Making a Progressive Web App
+As seguintes ferramentas foram usadas na construção do projeto:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Java
+- Spring Boot
+- Spring Security
+- JavaSccript
+- React
+- Axios
+- React Router Dom
+---
 
-### Advanced Configuration
+## 👨‍💻 Equipe
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Nathan - https://github.com/nathanoliveira3
+- Vinícius - https://github.com/VGSiqueira
+- Rafael - https://github.com/RMStorck
+- Bernardo - https://github.com/BernardoWaldhelm
+- Dany - https://github.com/bluejynz
+- Dylan - https://github.com/dylancdutra
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
